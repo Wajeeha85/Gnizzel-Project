@@ -2,7 +2,7 @@ import React from "react";
 import Logo from "../assets/images/Group 1000005195.png";
 import Author from "../assets/images/Group 1000005136.png";
 import SearchIcon from "../assets/images/Group (1).png";
-import UsersDeals from "./UserDeals";
+import Bookings from "./Bookings";
 
 const Deals2 = () => {
   return (
@@ -50,16 +50,16 @@ const Deals2 = () => {
         <hr className="  border-t-1 mt-5 border-gray-100 py-7 w-[1300px]" />
       </div>
       <div className="flex flex-direction-column  place-content-around ">
-        <UsersDeals />
-        <UsersDeals />
+        <Bookings />
+        <Bookings />
       </div>
 
       <div className="flex flex-direction-column  place-content-around ">
-        <UsersDeals />
-        <UsersDeals />
+        <Bookings />
+        <Bookings />
       </div>
       <div className="flex flex-direction-column  ml-6 mb-3">
-        <UsersDeals />
+        <Bookings />
       </div>
     </div>
   );
