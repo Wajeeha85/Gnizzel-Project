@@ -1,11 +1,10 @@
 import React from "react";
 import Logo from "../assets/images/Group 1000005195.png";
 import Author from "../assets/images/Group 1000005136.png";
-
+import SearchIcon from "../assets/images/Group (1).png";
 const Deals2 = () => {
   return (
     <div>
-      {" "}
       <div className="  box-border flex  items-center h-[80px]   bg-teal-400 p-4 justify-between  ">
         <div className="flex items-center ">
           <h1 className="  text-white px-3 font-semibold text-xl ">Deals</h1>
@@ -23,12 +22,13 @@ const Deals2 = () => {
           </p>
         </div>
       </div>
-      <div className="flex flex-direction-column justify-around ">
+      <div className="flex flex-direction-column justify-around  mt-16 ">
         <input
-          className="border  text-md  py-3  px-14 rounded-full border-gray-200"
+          className="border  text-md py-0  px-14 rounded-full border-gray-200"
           type="text"
           placeholder="Search"
         />
+        <img src={SearchIcon} size="1" />
         <input type="text" />
         <h1 className="flex justify-center mt-6  py-2 items-center font-bold text-4xl Poppins ">
           Deals
@@ -36,7 +36,7 @@ const Deals2 = () => {
         <h2 className="flex justify-center items-center text-xl Poppins  ">
           your Deals have been shown here
         </h2>
-        <button className="  bg-teal-300 py-4 px-8  rounded-full border-2 text-white border-white text-2xl  decoration  ">
+        <button className="  bg-teal-300 py-4 px-8  rounded-full border-2 text-white border-white text-xl  decoration  ">
           Create New Deal
         </button>
       </div>
