@@ -2,7 +2,8 @@ import React from "react";
 import Logo from "../assets/images/Group 1000005195.png";
 import Author from "../assets/images/Group 1000005136.png";
 import SearchIcon from "../assets/images/Group (1).png";
-import clinicPng from "../assets/Rectangle 17126.png";
+import UsersDeals from "./UserDeals";
+
 const Deals2 = () => {
   return (
     <div>
@@ -31,38 +32,34 @@ const Deals2 = () => {
         />
         <img src={SearchIcon} size="1" />
         <input type="text" />
-        <h1 className="flex justify-center mt-6  py-2 items-center font-bold text-4xl Poppins ">
-          Deals
-        </h1>
-        <p className="flex justify-center items-center ">
-          {" "}
-          <br /> Deals your deals have been shown here.
-        </p>
+        <div className="flex justify-center text-center items-center ">
+          <h1 className=" mt-6  py-2 items-center font-bold text-4xl Poppins ">
+            Deals
+          </h1>
+          <p>
+            <br /> Deals your deals have been shown here.
+          </p>
+        </div>
 
         <button className="  bg-teal-300 py-4  rounded-full border-2 text-white border-white text-xl  decoration  ">
           Create New Deal
         </button>
       </div>
-      <div className="flex flex-col text-center justify-center items-center h-[300px] w-[900px] border-2 border-teal-100 rounded-3xl shadow-xl space-y-4">
-        <button className="mb-2 border-2 border-teal-300 rounded-3xl font-semibold text-teal-500 py-2 px-2  ">
-          Attach Users
-        </button>
+      <div className="flex justify-center text-center items-center">
+        {" "}
+        <hr className="  border-t-1 mt-5 border-gray-100 py-7 w-[1300px]" />
+      </div>
+      <div className="flex flex-direction-column  place-content-around ">
+        <UsersDeals />
+        <UsersDeals />
+      </div>
 
-        <h1 className="mb-2 font-bold ">Dental Clinic</h1>
-
-        <h3 className="mb-2 font-semibold ">Wed May 20 08:00 - 08:30 PM</h3>
-
-        <p className="mb-2 text-4xl text-teal-400  ">$50.00</p>
-
-        <div className="flex space-x-4">
-          <button className="bg-teal-300 py-3 px-10 h-[ 100px]    font-semibold  rounded-full border-2 text-white border-white text-xl">
-            Update
-          </button>
-          <button className="bg-teal-50 py-3 px-10 rounded-full  font-semibold border-2 text-teal-500 border-teal-300 text-xl">
-            Disable
-          </button>
-        </div>
-        <img src={clinicPng} alt="Clinic" />
+      <div className="flex flex-direction-column  place-content-around ">
+        <UsersDeals />
+        <UsersDeals />
+      </div>
+      <div className="flex flex-direction-column  ml-6 mb-3">
+        <UsersDeals />
       </div>
     </div>
   );
