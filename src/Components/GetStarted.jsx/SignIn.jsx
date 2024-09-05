@@ -1,15 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Hidden from "../assets/images/Hidden.png";
 import deals from "../Deals/Deals";
+import axios from "axios";
 import Logo from "../assets/images/Group 1000005195.png";
 import EyeIcon from "../assets/images/Hidden.png";
 import GroupImage from "../assets/images/Group 1000005317.jpg";
 import { Link } from "react-router-dom";
-const MainPage = () => {
-  const [showPassword, setShowPassword] = useState("false");
+import { postApiWithoutAuth } from "../utils/Api";
+import ENDPOINTS from "../utils/endpoints";
+const SignIn = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [data, setData] = useState({ email: "", password: "" });
+
+  const getValues = (e) => {
+    setData(() => ({
+      ...data,
+      [e.target.name]: e.target.value,
+    }));
+  };
+  console.log(data);
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+
+  const handleSignIn = async () => {
+    const response = await postApiWithoutAuth(ENDPOINTS.SIGN_IN, {
+      email: data.email,
+      password: data.password,
+      type: 0,
+    });
+    if (response.success) {
+      const authHeader = response.headers.get("Authorization");
+      // localStorage.setItem("user_token", authHeader);
+      console.log("response data", authHeader, response);
+    } else {
+      console.log("error ", response.error);
+    }
+  };
+
   return (
     <>
       <div className=" flex box-border items-center  justify-between bg-teal-400 py-1 ">
@@ -18,7 +46,10 @@ const MainPage = () => {
           <button className="bg-transparent rounded-full border text-slate-100 border-white px-6 py-2 text-2xl font-light   decoration tracking-tighter  ">
             Language
           </button>
-          <button className="bg-transparent rounded-full border text-slate-100  border-white px-8 py-2 text-2xl  font-light  decoration tracking-tighter  ">
+          <button
+            onClick={() => handleSignIn()}
+            className="bg-transparent rounded-full border text-slate-100  border-white px-8 py-2 text-2xl  font-light  decoration tracking-tighter  "
+          >
             Sign Up{" "}
           </button>
         </div>
@@ -58,14 +89,19 @@ Poppins text-slate-400 mt-7 px-8"
             <input
               className="border   text-md  py-3  px-14 rounded-full border-gray-200"
               type="text"
+              name="email"
               placeholder="Enter email address"
+              onChange={getValues}
+              required
             />
           </div>
           <div>
             <input
               className="border  text-md  py-3  px-14 rounded-full border-gray-200"
-              type="text"
+              type={showPassword ? "text" : "password"}
               placeholder="Enter password"
+              name="password"
+              onChange={getValues}
             />
             <img
               src={EyeIcon}
@@ -79,9 +115,7 @@ Poppins text-slate-400 mt-7 px-8"
           </h5>
 
           <div className="rounded-full text-center bg-teal-300 border-2 px-14  border-white  py-2 text-xl mt-2 text-white decoration ">
-            <button Link to="/signin">
-              <Link to="/signin"> SIGN IN</Link>
-            </button>
+            <button onClick={() => handleSignIn()}>SIGN bbbIN</button>
           </div>
           <h5 className="py-5 text-slate-400 ">
             Need Help?{" "}
@@ -95,4 +129,4 @@ Poppins text-slate-400 mt-7 px-8"
   );
 };
 
-export default MainPage;
+export default SignIn;

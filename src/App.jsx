@@ -10,20 +10,87 @@ import ContactUs from "./Components/ContactUs";
 import Deals2 from "./Components/Deals/Deals2";
 import Deals from "./Components/Deals/Deals";
 import CreateDeal from "./Components/Deals/CreateDeal";
+import AttachUsers from "./Components/Deals/AttachUsers";
+import PublicRoute from "./Components/utils/PublicRoute";
+import ProtectedRoute from "./Components/utils/ProtectedRoute";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/forgotpassword" element={<ForgotPassword />} />
-        <Route path="/deals2" element={<Deals2 />} />
-        <Route path="/signin" element={<SignIn />} />
+        <Route
+          path="/signup"
+          element={
+            <PublicRoute>
+              <SignUp />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/forgotpassword"
+          element={
+            <PublicRoute>
+              <ForgotPassword />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/deals2"
+          element={
+            <ProtectedRoute>
+              <Deals2 />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/signin"
+          element={
+            <PublicRoute>
+              <SignIn />
+            </PublicRoute>
+          }
+        />
 
-        <Route path="/newpassword" element={<NewPassword />} />
-        <Route path="/contactus" element={<ContactUs />} />
-        <Route path="/deals" element={<Deals />} />
-        <Route path="/createdeal" element={<CreateDeal />} />
+        <Route
+          path="/newpassword"
+          element={
+            <PublicRoute>
+              <NewPassword />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/contactus"
+          element={
+            <PublicRoute>
+              <ContactUs />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/deals"
+          element={
+            <ProtectedRoute>
+              <Deals />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/createdeal"
+          element={
+            <ProtectedRoute>
+              <CreateDeal />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/attachusers"
+          element={
+            <PublicRoute>
+              <AttachUsers />
+            </PublicRoute>
+          }
+        />
       </Routes>
     </Router>
   );

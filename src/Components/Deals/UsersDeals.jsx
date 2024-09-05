@@ -1,14 +1,15 @@
 import React from "react";
 import clinicPng from "../assets/Rectangle 17126.png";
 import clockIcon from "../assets/images/Group 1000005275.png";
+import { Link } from "react-router-dom";
 
 const UserDeals = () => {
   return (
     <>
       <div className="flex flex-row mt-5  h-[260px] w-[700px] border-2 border-teal-100 rounded-3xl shadow-xl p-4">
         <div className="flex flex-col space-y-4 flex-grow">
-          <button className="border-2 border-teal-300 rounded-3xl font-semibold text-teal-500 py-2 w-[120px] mb-2">
-            Attach Users
+          <button className="border-2 cursor-pointer hover:bg-teal-400 hover:text-white border-teal-300 rounded-3xl font-semibold text-teal-500 py-2 w-[120px] mb-2">
+            <Link to="/attachusers"> Attach Users</Link>
           </button>
           <div>
             <h1 className="font-bold text-3xl "> Dental Clinic</h1>{" "}

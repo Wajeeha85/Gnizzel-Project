@@ -32,6 +32,7 @@ const SignUp = () => {
     console.log(response);
     if (response.success) {
       alert("Account created successfully");
+      console.log(response.headers);
       setTimeout(() => {
         navigate("/signin");
       }, 0);
