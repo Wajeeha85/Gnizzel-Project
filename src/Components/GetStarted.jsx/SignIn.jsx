@@ -5,13 +5,13 @@ import axios from "axios";
 import Logo from "../assets/images/Group 1000005195.png";
 import EyeIcon from "../assets/images/Hidden.png";
 import GroupImage from "../assets/images/Group 1000005317.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { postApiWithoutAuth } from "../utils/Api";
 import ENDPOINTS from "../utils/endpoints";
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [data, setData] = useState({ email: "", password: "" });
-
+  const navigate = useNavigate();
   const getValues = (e) => {
     setData(() => ({
       ...data,
@@ -27,12 +27,12 @@ const SignIn = () => {
     const response = await postApiWithoutAuth(ENDPOINTS.SIGN_IN, {
       email: data.email,
       password: data.password,
-      type: 0,
+      role: "customer",
     });
     if (response.success) {
-      const authHeader = response.headers.get("Authorization");
-      // localStorage.setItem("user_token", authHeader);
-      console.log("response data", authHeader, response);
+      const authHeader = response.headers.getAuthorization();
+      localStorage.setItem("user_token", "tokenValue");
+      navigate("/deals");
     } else {
       console.log("error ", response.error);
     }
@@ -115,7 +115,7 @@ Poppins text-slate-400 mt-7 px-8"
           </h5>
 
           <div className="rounded-full text-center bg-teal-300 border-2 px-14  border-white  py-2 text-xl mt-2 text-white decoration ">
-            <button onClick={() => handleSignIn()}>SIGN bbbIN</button>
+            <button onClick={() => handleSignIn()}>SIGN IN</button>
           </div>
           <h5 className="py-5 text-slate-400 ">
             Need Help?{" "}

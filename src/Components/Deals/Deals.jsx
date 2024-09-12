@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import Sign from "../assets/images/Group.png";
 import ENDPOINTS from "../utils/endpoints.js";
 import { getApiWithAuth } from "../utils/Api.js";
+import { useNavigate } from "react-router-dom";
 
 const CreateDeal = () => {
   const [data, setData] = useState(null);
-
+  const token = localStorage.getItem("user_token");
+  const navigate = useNavigate();
   const gettingData = async () => {
     try {
       const response = await getApiWithAuth(ENDPOINTS.Users_me);
@@ -25,10 +27,15 @@ const CreateDeal = () => {
     }
   };
 
-  useEffect(() => {
-    gettingData();
-  }, []);
-
+  // useEffect(() => {
+  //   gettingData();
+  // }, []);
+  // useEffect(() => {
+  //   const token = localStorage.getItem("user_token");
+  //   if (!token) {
+  //     navigate("/signin");
+  //   }
+  // }, []);
   return (
     <>
       <div>

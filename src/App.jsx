@@ -26,12 +26,13 @@ function App() {
             </PublicRoute>
           }
         />
+
         <Route
           path="/forgotpassword"
           element={
-            <PublicRoute>
+            <ProtectedRoute>
               <ForgotPassword />
-            </PublicRoute>
+            </ProtectedRoute>
           }
         />
         <Route
@@ -54,17 +55,17 @@ function App() {
         <Route
           path="/newpassword"
           element={
-            <PublicRoute>
+            <ProtectedRoute>
               <NewPassword />
-            </PublicRoute>
+            </ProtectedRoute>
           }
         />
         <Route
           path="/contactus"
           element={
-            <PublicRoute>
+            <ProtectedRoute>
               <ContactUs />
-            </PublicRoute>
+            </ProtectedRoute>
           }
         />
         <Route
@@ -86,9 +87,9 @@ function App() {
         <Route
           path="/attachusers"
           element={
-            <PublicRoute>
+            <ProtectedRoute>
               <AttachUsers />
-            </PublicRoute>
+            </ProtectedRoute>
           }
         />
       </Routes>

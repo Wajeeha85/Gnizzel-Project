@@ -1,7 +1,21 @@
 import React from "react";
 import Navbar from "../GetStarted.jsx/Navbar";
+import { useDispatch, useSelector } from "react-redux";
+import { setDealData } from "../../redux/dealsSlice";
 
 const CreateDeal2 = () => {
+  const dispatch = useDispatch();
+  const deals = useSelector((state) => state.dealsData.data);
+  console.log(deals, "deasl");
+  const handleChange = (e) => {
+    dispatch(
+      setDealData({
+        name: e.target.name,
+        value: e.target.value,
+      })
+    );
+  };
+
   return (
     <div>
       <Navbar />
@@ -12,6 +26,8 @@ const CreateDeal2 = () => {
               className="border text-md py-4 px-6 rounded-full border-gray-200 w-full"
               type="text"
               placeholder="Deal Name"
+              name="dealName"
+              onChange={handleChange}
             />
           </div>
           <div>
@@ -22,6 +38,8 @@ const CreateDeal2 = () => {
               className="border w-full h-[150px] text-md px-4 py-2 rounded-xl border-gray-200"
               type="text"
               placeholder="Enter text here...."
+              name="description"
+              onChange={handleChange}
             />
           </div>
           <div className="mb-4 mt-3">
@@ -32,6 +50,8 @@ const CreateDeal2 = () => {
               className="border text-md py-4 px-6 rounded-full border-gray-200 w-full"
               type="text"
               placeholder="Price of deal"
+              name="price"
+              onChange={handleChange}
             />
           </div>
           <div className="mb-4">
@@ -42,6 +62,8 @@ const CreateDeal2 = () => {
               className="border text-md py-4 px-6 rounded-full border-gray-200 w-full"
               type="text"
               placeholder="Number of deals "
+              name="numbers"
+              onChange={handleChange}
             />
           </div>
           <div className="mb-4  ">
@@ -53,11 +75,15 @@ const CreateDeal2 = () => {
                 className="border    text-md py-4 px-6 rounded-full border-gray-200 w-96"
                 type="text"
                 placeholder="Starting Time  "
+                name="time"
+                onChange={handleChange}
               />
               <input
                 className="border    text-md py-4 px-6 rounded-full border-gray-200 w-96"
                 type="text"
                 placeholder="Ending Time "
+                name="time"
+                onChange={handleChange}
               />
             </div>
           </div>

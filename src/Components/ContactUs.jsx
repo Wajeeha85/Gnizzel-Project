@@ -4,6 +4,7 @@ import Navbar from "./GetStarted.jsx/Navbar";
 const ContactUs = () => {
   const value = import.meta.env.VITE_API_BASE_URL;
   console.log(value);
+
   return (
     <div>
       <Navbar />

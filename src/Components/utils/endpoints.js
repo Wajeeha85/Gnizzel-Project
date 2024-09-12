@@ -1,6 +1,6 @@
 const ENDPOINTS = {
   SIGN_UP: "/signup/",
-  SIGN_IN: "/auth/sign_in/",
+  SIGN_IN: "/login/",
   Users_me: "/users/me",
 };
 
